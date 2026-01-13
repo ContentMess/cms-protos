@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package cms.protos;
+
+option csharp_namespace = "Cms.Protos";
+
+service ImageService {
+  rpc GetById(ImageGetByIdRequest) returns (ImageGetByIdResponse);
+}
+
+message ImageGetByIdRequest {
+  string id = 1;
+}
+
+message ImageGetByIdResponse {
+  string id = 1;
+  string file_name = 2;
+  int64 size_in_bytes = 3;
+  ImageFormat format = 4;
+}
+
+enum ImageFormat {
+  WEBP = 0;
+}
